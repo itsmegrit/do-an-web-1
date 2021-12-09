@@ -604,8 +604,9 @@ function checkOut() {
     var note = document.getElementById("notes").value;
     var payment = document.getElementById("payment").value;
     var cartArr = [];
+    var ramdom = Math.floor(Math.random() * 100);
     for (let i = 0; i < checkoutArr.length; i++) {
-      cartArr[i] = new setCartArr("DH01", checkoutArr[i].name, checkoutArr[i].numOrder, checkoutArr[i].price);
+      cartArr[i] = new setCartArr("DH" + ramdom, checkoutArr[i].name, checkoutArr[i].numOrder, checkoutArr[i].price);
       localStorage.setItem("listCartCheckout", JSON.stringify(cartArr));
     }
     console.log(cartArr);

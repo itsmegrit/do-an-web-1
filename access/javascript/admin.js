@@ -348,7 +348,9 @@ function showdetailcart(obj) {
   s += "    <table><thead><tr><th>Tên sản phẩm</th><th>Gía</th><th>Số lượng</th></tr></thead> <tbody>";
   listCartCheckout = JSON.parse(localStorage.getItem("listCartCheckout"));
   for (i = 0; i < listCartCheckout.length; i++) {
-    s += "<tr><td>" + listCartCheckout[i].productName + "</td><td>" + listCartCheckout[i].price + "</td><td>" + listCartCheckout[i].quantity + "</td></tr>";
+    if (listCartCheckout[i].maDH == obj.id) {
+      s += "<tr><td>" + listCartCheckout[i].productName + "</td><td>" + listCartCheckout[i].price + "</td><td>" + listCartCheckout[i].quantity + "</td></tr>";
+    }
   }
   s += "     </tbody> </table>";
   document.getElementById("listproductcart").innerHTML = s;
