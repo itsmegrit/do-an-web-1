@@ -61,9 +61,9 @@ var arrProduct = [];
 function createProduct() {
   arrProduct = [
     new setProductItem("nike-id", "nike-01", "nike 01", "1000", "1000000", "nike-1.jpg", "100% coton"),
-    new setProductItem("nike-id", "nike-02", "nike 02", "2000", "900", "nike-2.jpg", "100% coton"),
-    new setProductItem("nike-id", "nike-03", "nike 03", "3000", "1000", "nike-3.jpg", "100% coton"),
-    new setProductItem("nike-id", "nike-04", "nike 04", "4000", "1100", "add-1.jpg", "100% coton"),
+    new setProductItem("nike-id", "nike-02", "nike 02", "2000", "900", "nike-2.jpg", "95% coton"),
+    new setProductItem("nike-id", "nike-03", "nike 03", "3000", "1000", "nike-3.jpg", "100% coton đến từ Việt Nam"),
+    new setProductItem("nike-id", "nike-04", "nike 04", "4000", "1100", "add-1.jpg", "100% tổng hợp"),
     new setProductItem("nike-id", "nike-05", "nike 05", "5000", "1200", "add-2.jpg", "100% coton"),
     new setProductItem("nike-id", "nike-06", "nike 06", "6000", "1300", "nike-1.jpg", "100% coton"),
     new setProductItem("nike-id", "nike-07", "nike 07", "7000", "1400", "nike-2.jpg", "100% coton"),
@@ -612,6 +612,8 @@ function checkOut() {
     // localStorage.setItem("listCartCheckout", JSON.stringify(cartArr));
     var checkOutInfo = [new setCheckoutInfo(fullname, phone, address, note, payment, cartArr[0].maDH)];
     localStorage.setItem("listCheckOut", JSON.stringify(checkOutInfo));
+    var emptyArr = [];
+    localStorage.setItem("listCart", JSON.stringify(emptyArr));
   }
 }
 

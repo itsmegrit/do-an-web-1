@@ -280,3 +280,45 @@ ul.list-item li:hover {
   background-color: var(--text-color);
   color: #fff;
 }
+
+#detailCart {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  display: none;
+}
+
+#detailCart .cart {
+  margin: auto;
+  margin-top: 4%;
+  min-height: 10%;
+  width: 50%;
+  padding: 10px;
+  background-color: #fff;
+}
+
+#detailCart .cart #listproductcart table {
+  width: 100%;
+  font-size: 14px;
+}
+
+#detailCart .cart #listproductcart table thead tr th {
+  padding: 10px;
+  background: #ddd;
+  width: 30%;
+}
+
+#detailCart .cart #listproductcart table thead tr:hover {
+  cursor: pointer;
+}
+
+#detailCart .cart #listproductcart table tbody tr {
+  border-bottom: 1px solid black;
+}
+
+#detailCart .cart #listproductcart table tbody tr td {
+  text-align: center;
+  padding: 15px;
+}

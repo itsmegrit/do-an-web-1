@@ -303,9 +303,55 @@ function show(obj) {
       showuser(2);
       break;
     }
-    default:
+    case "tk":
+      {
+        showsTatistical();
+        break;
+      }
       loadmain();
   }
+}
+
+function showsTatistical() {
+  s = "";
+  s += " <table class='thongke'><thead><tr><th>MaDh</th><th>Họ và tên</th><th>Số điện thoại</th><th>Địa chỉ</th><th>Ghi chú</th><th>Thanh toán</th><th>Chi tiết</th></tr></thead><tbody>";
+  listCheckOut = JSON.parse(localStorage.getItem("listCheckOut"));
+  console.log(listCheckOut);
+  for (i = 0; i < listCheckOut.length; i++) {
+    s +=
+      "<tr><td>" +
+      listCheckOut[i].maDH +
+      "</td><td>" +
+      listCheckOut[i].fullname +
+      "</td><td>" +
+      listCheckOut[i].phone +
+      "</td><td>" +
+      listCheckOut[i].address +
+      "</td><td>" +
+      listCheckOut[i].note +
+      "</td><td>" +
+      listCheckOut[i].payment +
+      "</td><td onclick='showdetailcart(this)' id='" +
+      listCheckOut[i].maDH +
+      "'>Chi tiết</td></tr>";
+  }
+  s += "</tbody></table>";
+  document.getElementById("list").innerHTML = s;
+  document.getElementById("paginate").innerHTML = "";
+  document.getElementById("right").innerHTML = "";
+}
+
+function showdetailcart(obj) {
+  document.getElementById("detailCart").classList.add("hien");
+  document.getElementById("list").innerHTML = "";
+  var s = "";
+  s += "    <table><thead><tr><th>Tên sản phẩm</th><th>Gía</th><th>Số lượng</th></tr></thead> <tbody>";
+  listCartCheckout = JSON.parse(localStorage.getItem("listCartCheckout"));
+  for (i = 0; i < listCartCheckout.length; i++) {
+    s += "<tr><td>" + listCartCheckout[i].productName + "</td><td>" + listCartCheckout[i].price + "</td><td>" + listCartCheckout[i].quantity + "</td></tr>";
+  }
+  s += "     </tbody> </table>";
+  document.getElementById("listproductcart").innerHTML = s;
 }
 
 function onloadFnc() {
