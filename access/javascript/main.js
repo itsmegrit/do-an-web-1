@@ -422,19 +422,20 @@ function showDetail(productID_detail) {
         products[i].img +
         "' alt=''></div><div class='information'><h1 class='name'>" +
         products[i].name +
-        "</h1> <p class='code'><strong>Ma san pham:</strong>" +
+        "</h1> <p class='code'><strong>Ma san pham: </strong>" +
         products[i].productID +
-        "</p> <p class='price'> <strong>Gia san pham:</strong>" +
+        "</p> <p class='price'> <strong>Gia san pham: </strong>" +
         products[i].price +
         "</p> <p class='detail'> <strong>Chi tiết: </strong>:" +
         products[i].detail +
         "</p><p><strong>Kích thước</strong>:</p><ul class='listsize'><li>39</li><li>40</li><li>41</li><li>42</li><li>43</li></ul><button id='" +
         products[i].productID +
-        "' onclick='addProductToCart(this.id)' class='add_to_cart'>Them vao gio hang</button></div></div>";
+        "' onclick='addProductToCart(this.id)' class='add_to_cart btn'>Thêm vào giỏ hàng</button></div></div>";
       break;
     }
   }
-  var home = '<button class="to-home-button btn">Home</button>';
+
+  var home = '<button class="to-home-button btn" onclick="location.reload();">Tiếp tục mua</button>';
   document.getElementById("home-product-pagination-id").innerHTML = " ";
   document.getElementById("home-product-id").innerHTML = s + home;
 }
