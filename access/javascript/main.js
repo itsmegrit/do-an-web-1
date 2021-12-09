@@ -262,6 +262,7 @@ function reg() {
     userarray.push(user);
     localStorage.setItem("user", JSON.stringify(userarray));
     alert("Bạn đã đăng ký thành công");
+    location.reload();
     // window.location = "http://localhost:8080/unitop.vn/Front-end/lambenngoai/web1/do-an-web-1/";
   }
 }
