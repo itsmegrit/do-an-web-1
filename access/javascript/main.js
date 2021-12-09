@@ -159,14 +159,14 @@ function showHomeProductList(pageNumber, maxIndex, typeID) {
   document.getElementById("home-product-id").innerHTML = '<div class="grid">' + productRow + "</div>";
 }
 
-function showDetail(id) {
-  console.log(id);
-  for (let i = 0; i < tempProductArr.length; i++) {
-    if (tempProductArr[i].productID == id) {
-      console.log(tempProductArr[i]);
-    }
-  }
-}
+// function showDetail(id) {
+//   console.log(id);
+//   for (let i = 0; i < tempProductArr.length; i++) {
+//     if (tempProductArr[i].productID == id) {
+//       console.log(tempProductArr[i]);
+//     }
+//   }
+// }
 
 // check user login
 function login() {
@@ -415,6 +415,7 @@ function showHomeProductPagination() {
 function showDetail(productID_detail) {
   products = JSON.parse(localStorage.getItem("listproduct"));
   var s = "";
+  var home = '<button class="to-home-button btn" onclick="location.reload();">Tiếp tục mua</button>';
   for (i = 0; i < products.length; i++) {
     if (productID_detail == products[i].productID) {
       s +=
@@ -428,16 +429,17 @@ function showDetail(productID_detail) {
         products[i].price +
         "</p> <p class='detail'> <strong>Chi tiết: </strong>:" +
         products[i].detail +
-        "</p><p><strong>Kích thước</strong>:</p><ul class='listsize'><li>39</li><li>40</li><li>41</li><li>42</li><li>43</li></ul><button id='" +
+        "</p><p><strong>Kích thước</strong>:</p><ul class='listsize'><li>39</li><li>40</li><li>41</li><li>42</li><li>43</li></ul><div class='detail-button-section'><button id='" +
         products[i].productID +
-        "' onclick='addProductToCart(this.id)' class='add_to_cart btn'>Thêm vào giỏ hàng</button></div></div>";
+        "' onclick='addProductToCart(this.id)' class='add_to_cart btn'>Thêm vào giỏ hàng</button>" +
+        home +
+        "</div></div></div>";
       break;
     }
   }
 
-  var home = '<button class="to-home-button btn" onclick="location.reload();">Tiếp tục mua</button>';
   document.getElementById("home-product-pagination-id").innerHTML = " ";
-  document.getElementById("home-product-id").innerHTML = s + home;
+  document.getElementById("home-product-id").innerHTML = s;
 }
 
 function setCart(productID, image, price, name, numOrder) {
@@ -565,12 +567,13 @@ function showCheckOutItem() {
     s = "";
     for (let i = 0; i < checkoutArr.length; i++) {
       sum = sum - -(checkoutArr[i].price * checkoutArr[i].numOrder);
-      var s1 = '<li class="check-out-product-item">' + '<div class="thumb">' + '<img src="./access/image/product/' + checkoutArr[i].image + '" alt="">' + "</div>" + '<div class="moreinfo">' + "<p>Số lượng: " + checkoutArr[i].numOrder + "</p>" + "</div>";
+      var s1 =
+        '<li class="check-out-product-item">' + '<div class="thumb">' + '<img src="./access/image/product/' + checkoutArr[i].image + '" alt="">' + "</div>" + '<div class="moreinfo">' + '<div class="checkout-product-name">' + checkoutArr[i].name + "</div>" + "<p>Số lượng: " + checkoutArr[i].numOrder + "</p>" + "</div>";
       ("</li>");
       s += s1;
     }
   }
-  document.getElementById("detailCheckout").innerHTML = '<ul class="listproduct">' + s + "</ul>" + '<p class="form-checkout-total"><strong>Tổng tiền: ' + sum + "</strong></p>";
+  document.getElementById("detailCheckout").innerHTML = '<ul class="listproduct">' + s + "</ul>" + '<p class="form-checkout-total"><strong>Tổng tiền: ' + sum + "$</strong></p>";
 }
 
 function setCheckoutInfo(fullname, phone, address, note, payment, maDH) {
