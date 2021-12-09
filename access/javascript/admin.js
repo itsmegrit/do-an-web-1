@@ -170,6 +170,7 @@ function formaddtype() {
 function showuser(obj) {
   var s = "";
   listuser = JSON.parse(localStorage.getItem("user"));
+  console.log(listuser);
   s += "<table class='listuser'><thead><tr><th>Họ và tên</th><th>Username</th><th>Usertype</th><th>Sdt</th></tr></thead><tbody>";
   for (i = 0; i < obj; i++) {
     s += "<tr><td>" + listuser[i].fullname + "</td><td>" + listuser[i].userName + "</td><td>" + listuser[i].userType + "</td><td>" + listuser[i].phone + "</td></tr>";
@@ -209,6 +210,7 @@ function pagination(numproduct, numpage, type) {
   s += "</ul>";
   document.getElementById("paginate").innerHTML = s;
 }
+
 // load sản phẩm trên từng thanh phân trang
 function loaddata(obj) {
   var page = obj.getAttribute("attr"); // thuộc tính để biết số sản phẩm trong 1 trang
@@ -268,11 +270,11 @@ function loaddata(obj) {
 
     if (start - -page >= listuser.length) {
       for (i = start; i < listuser.length; i++) {
-        s += "<tr><td>" + listuser[i].fullname + "</td><td>" + listuser[i].username + "</td><td>" + listuser[i].usertype + "</td><td>" + listuser[i].phone + "</td></tr>";
+        s += "<tr><td>" + listuser[i].fullname + "</td><td>" + listuser[i].userName + "</td><td>" + listuser[i].userType + "</td><td>" + listuser[i].phone + "</td></tr>";
       }
     } else {
       for (i = start; i < page - -start; i++) {
-        s += "<tr><td>" + listuser[i].fullname + "</td><td>" + listuser[i].username + "</td><td>" + listuser[i].usertype + "</td><td>" + listuser[i].phone + "</td></tr>";
+        s += "<tr><td>" + listuser[i].fullname + "</td><td>" + listuser[i].userName + "</td><td>" + listuser[i].userType + "</td><td>" + listuser[i].phone + "</td></tr>";
       }
     }
 
